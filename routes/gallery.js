@@ -15,6 +15,29 @@ router.route('/:id')
         res.json(project);
       })
   })
+  .put((req, res) => {
+    Project.update({
+      link: req.body.link,
+      description: req.body.description
+    },{
+      where: {
+        id: req.params.id
+      }
+    })
+    .then( project => {
+        res.json('hello');
+    })
+  }) // close put
+  .delete((req,res) => {
+    Project.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then( project => {
+        res.json('hello');
+    })
+  })
 
 // router.route('/gallery/new')
 //   .get((req, res) => {
@@ -26,7 +49,6 @@ router.route('/:id')
 
 router.route('/')
   .post((req,res) => {
-    console.log('hello');
     Project.create({
       link: req.body.link,
       description: req.body.description
@@ -35,6 +57,12 @@ router.route('/')
       res.json(project);
     })
   })
+
+// router.route('/:id/edit')
+//   .get((req,res) => {
+//     //render hbs
+//   })
+
 
 
 module.exports = router;
