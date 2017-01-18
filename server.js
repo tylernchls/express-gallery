@@ -16,7 +16,6 @@ app.use(express.static('public'));
 
 app.use(methodOverride(function (req, res) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-    // look in urlencoded POST bodies and delete it
     let method = req.body._method
     delete req.body._method
     return method
@@ -33,14 +32,5 @@ app.engine('.hbs', exphbs({
 app.use('/', home);
 app.use('/gallery', gallery);
 app.use('/author', author);
-
-
-// app.post('/author', function (req, res) {
-//   Author.create({ name: req.body.name })
-//     .then(function (author) {
-//       res.json(author);
-//     });
-// });
-
 
 module.exports = app;

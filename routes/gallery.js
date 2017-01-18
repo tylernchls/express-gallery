@@ -20,7 +20,6 @@ router.route('/:id')
     })
       .then( project => {
         project = project[0].dataValues;
-        console.log(project);
         res.render('templates/project', {project});
       })
   })
@@ -34,11 +33,9 @@ router.route('/:id')
       }
     })
     .then( project => {
-      // project = project[0].dataValues;
-      // console.log(project);
         res.redirect(`/gallery/${req.params.id}`);
     })
-  }) // close put
+  })
   .delete((req,res) => {
     Project.destroy({
       where: {
@@ -60,7 +57,6 @@ router.route('/')
       AuthorId: req.body.authorId
     })
     .then( project => {
-      console.log(project);
       res.redirect('/')
     })
   })
