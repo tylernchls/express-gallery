@@ -20,6 +20,7 @@ router.route('/:id')
     })
       .then( project => {
         project = project[0].dataValues;
+        console.log(project);
         res.render('templates/project', {project});
       })
   })
@@ -33,8 +34,9 @@ router.route('/:id')
       }
     })
     .then( project => {
-      project = project[0].dataValues;
-        res.render('templates/project', {project});
+      // project = project[0].dataValues;
+      // console.log(project);
+        res.redirect(`/gallery/${req.params.id}`);
     })
   }) // close put
   .delete((req,res) => {
@@ -54,7 +56,8 @@ router.route('/')
   .post((req,res) => {
     Project.create({
       link: req.body.link,
-      description: req.body.description
+      description: req.body.description,
+      AuthorId: req.body.authorId
     })
     .then( project => {
       console.log(project);

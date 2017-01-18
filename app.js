@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const home = require('./routes/home');
 const gallery = require('./routes/gallery');
+const author = require('./routes/author');
 var methodOverride = require('method-override')
 
 const db = require('./models');
@@ -31,6 +32,7 @@ app.engine('.hbs', exphbs({
 
 app.use('/', home);
 app.use('/gallery', gallery);
+app.use('/author', author);
 
 
 // app.post('/author', function (req, res) {
