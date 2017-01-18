@@ -1,10 +1,14 @@
 <h1>Project Gallery</h1>
 
 {{#each project}}
-{{!-- <a href="/gallery/{{this.id}}"> --}}
-  <div>
+<a href="/gallery/{{this.id}}">
+  <div class="projects">
     <p>by: {{this.link}}</p>
     <p>{{this.description}}</p>
   </div>
-{{!-- </a> --}}
+</a>
 {{/each}}
+
+<div>
+  <a href="/gallery/new" class="back">New</a>
+</div>
