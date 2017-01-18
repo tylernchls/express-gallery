@@ -46,7 +46,7 @@ router.route('/:id')
       }
     })
     .then( project => {
-        res.json('hello');
+        res.redirect('/');
     })
   })
 
