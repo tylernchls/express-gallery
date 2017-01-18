@@ -1,2 +1,12 @@
 node_modules
+<<<<<<< HEAD
 config
+=======
+
+# Users Environment Variables
+.lock-wscript
+bower_components
+node_modules
+*.DS_Store
+node_modules
+>>>>>>> f1bcf5ba2d45260718f4ccdffa7c0111b65f3d6e
