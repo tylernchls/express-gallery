@@ -11,9 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/emortong/express-gallery.git"
   },
-
   "keywords": [],
-
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -23,7 +21,9 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.6",
+    "method-override": "^2.3.7",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.29.0"
@@ -32,13 +32,5 @@
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-sass": "^3.1.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "handlebars": "^4.0.6",
-    "pg": "^6.1.2",
-    "pg-hstore": "^2.3.2",
-    "sequelize": "^3.29.0"
   }
 }

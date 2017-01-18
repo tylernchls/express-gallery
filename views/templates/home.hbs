@@ -1,0 +1,10 @@
+<h1>Project Gallery</h1>
+
+{{#each project}}
+{{!-- <a href="/gallery/{{this.id}}"> --}}
+  <div>
+    <p>by: {{this.link}}</p>
+    <p>{{this.description}}</p>
+  </div>
+{{!-- </a> --}}
+{{/each}}

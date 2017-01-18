@@ -4,6 +4,13 @@ const db = require('../models');
 const Project = db.Project;
 const bodyParser = require('body-parser');
 
+
+
+router.route('/new')
+  .get((req, res) => {
+      res.render('templates/new')
+    })
+
 router.route('/:id')
   .get((req, res) => {
     Project.findAll({
@@ -12,7 +19,8 @@ router.route('/:id')
       }
     })
       .then( project => {
-        res.json(project);
+        project = project[0].dataValues;
+        res.render('templates/project', {project});
       })
   })
   .put((req, res) => {
@@ -25,7 +33,8 @@ router.route('/:id')
       }
     })
     .then( project => {
-        res.json('hello');
+      project = project[0].dataValues;
+        res.render('templates/project', {project});
     })
   }) // close put
   .delete((req,res) => {
@@ -39,13 +48,7 @@ router.route('/:id')
     })
   })
 
-// router.route('/gallery/new')
-//   .get((req, res) => {
-//     // render
-//     })
-//       .then( project => {
-//         res.json(project);
-//       })
+
 
 router.route('/')
   .post((req,res) => {
@@ -54,14 +57,23 @@ router.route('/')
       description: req.body.description
     })
     .then( project => {
-      res.json(project);
+      console.log(project);
+      res.redirect('/')
     })
   })
 
-// router.route('/:id/edit')
-//   .get((req,res) => {
-//     //render hbs
-//   })
+router.route('/:id/edit')
+  .get((req,res) => {
+    Project.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then( project => {
+      project = project[0].dataValues;
+      res.render('templates/edit', {project})
+    })
+  })
 
 
 

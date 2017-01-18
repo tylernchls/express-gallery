@@ -5,10 +5,9 @@ const Project = db.Project;
 
 router.route('/')
   .get((req, res) => {
-    console.log('hello');
     Project.findAll()
       .then( project => {
-        res.json(project);
+        res.render('templates/home', {project});
       })
   })
 
