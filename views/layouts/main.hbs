@@ -7,10 +7,12 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-  {{ header }}
-  <div class="container">
-  {{{ body }}}
+  <div class="wrap">
+    {{>header }}
+    <div class="container">
+    {{{ body }}}
+    </div>
   </div>
-  {{ footer }}
+  {{>footer }}
 </body>
 </html>

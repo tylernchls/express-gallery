@@ -29,6 +29,7 @@ app.engine('.hbs', exphbs({
   defaultLayout:'main',
 }))
 
+
 app.use('/', home);
 app.use('/gallery', gallery);
 app.use('/author', author);

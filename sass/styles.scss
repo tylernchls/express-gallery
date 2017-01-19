@@ -18,6 +18,10 @@ input {
   font-family: Times;
 }
 
+.wrap {
+  min-height: calc(100vh - 104px);
+}
+
 .container {
   text-align: center;
   margin: auto;
@@ -49,4 +53,24 @@ input {
   border: solid black 3px;
   margin: 10px 0;
 }
+
+#header {
+  font-size: 50px;
+  background-color: black;
+  color: white;
+  margin-top: 0;
+}
+
+#header h1 {
+  margin: 0;
+}
+
+#footer {
+  background-color: buttonface;
+  padding: 8px;
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+
 // deleted index, check gulp repo
