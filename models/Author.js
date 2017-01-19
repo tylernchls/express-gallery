@@ -1,5 +1,6 @@
+'use strict';
 module.exports = function(sequelize, DataTypes) {
-  let Author = sequelize.define("Author", {
+  var Author = sequelize.define('Author', {
     name: DataTypes.STRING
   }, {
     classMethods: {
@@ -8,6 +9,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-
   return Author;
 };

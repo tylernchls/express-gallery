@@ -1,5 +1,6 @@
+'use strict';
 module.exports = function(sequelize, DataTypes) {
-  let Project = sequelize.define("Project", {
+  var Project = sequelize.define('Project', {
     link: DataTypes.STRING,
     description: DataTypes.TEXT
   }, {
@@ -9,6 +10,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-
   return Project;
 };
