@@ -5,7 +5,6 @@ const Project = db.Project;
 const bodyParser = require('body-parser');
 
 
-
 router.route('/new')
   .get((req, res) => {
       res.render('templates/new')
@@ -48,7 +47,6 @@ router.route('/:id')
   })
 
 
-
 router.route('/')
   .post((req,res) => {
     Project.create({
@@ -73,6 +71,13 @@ router.route('/:id/edit')
       res.render('templates/edit', {project})
     })
   })
+
+    router.route("*")
+    .get((req,res) => {
+      res.render('templates/404');
+  });
+
+
 
 
 
