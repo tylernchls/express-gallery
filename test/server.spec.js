@@ -72,7 +72,7 @@ describe('PUT/gallery/:id', () => {
           });
 
     });
-
-
   });
 });
+
+
