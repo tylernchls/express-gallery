@@ -34,4 +34,13 @@ app.use('/', home);
 app.use('/gallery', gallery);
 app.use('/author', author);
 
+app.use(function(req, res) {
+  res.render('templates/404');
+
+});
+
+app.get("*", (req,res) => {
+  res.render('templates/404');
+});
+
 module.exports = app;

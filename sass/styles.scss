@@ -63,6 +63,11 @@ input {
 
 #header h1 {
   margin: 0;
+  color: white;
+}
+
+#header h1:hover {
+  color: purple;
 }
 
 #footer {
@@ -71,6 +76,18 @@ input {
   margin-top: 25px;
   font-size: 20px;
 }
+
+#notFound {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 200px;
+  margin-top: 30px;
+}
+h1 {
+  margin: 0;
+}
+
 
 
 // deleted index, check gulp repo

@@ -12,14 +12,32 @@ const isObjEmpty = (req, res, next) => {
   }
 }
 
+const isValidRoute = (req, res, next) => {
+  Project.findAll({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then( project => {
+    console.log(project);
+    if(project.length !== 0){
+      next();
+    } else {
+      res.render('templates/404')
+    }
+  })
+  .catch( e => {
+    res.render('templates/404');
+  })
+}
 
 router.route('/new')
-  .get((req, res) => {
+  .get(isValidRoute,(req, res) => {
       res.render('templates/new')
     })
 
 router.route('/:id')
-  .get((req, res) => {
+  .get(isValidRoute,(req, res) => {
     Project.findAll({
       where: {
         id: req.params.id
@@ -31,7 +49,7 @@ router.route('/:id')
     })
 
   })
-  .put(isObjEmpty,(req, res) => {
+  .put(isValidRoute, isObjEmpty,(req, res) => {
     Project.update({
       link: req.body.link,
       description: req.body.description
@@ -48,7 +66,7 @@ router.route('/:id')
       res.json(err.errors[0].message);
     })
   })
-  .delete((req,res) => {
+  .delete(isValidRoute,(req,res) => {
     Project.destroy({
       where: {
         id: req.params.id
@@ -63,9 +81,8 @@ router.route('/:id')
   })
 
 
-
 router.route('/')
-  .post(isObjEmpty, (req,res) => {
+  .post(isValidRoute,isObjEmpty, (req,res) => {
     Project.create({
       link: req.body.link,
       description: req.body.description,
@@ -80,7 +97,7 @@ router.route('/')
   })
 
 router.route('/:id/edit')
-  .get((req,res) => {
+  .get(isValidRoute,(req,res) => {
     Project.findAll({
       where: {
         id: req.params.id
@@ -94,6 +111,13 @@ router.route('/:id/edit')
       console.log(err);
     })
   })
+
+    router.route("*")
+    .get((req,res) => {
+      res.render('templates/404');
+  });
+
+
 
 
 
