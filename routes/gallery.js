@@ -29,9 +29,7 @@ router.route('/:id')
       project = project[0].dataValues;
       res.render('templates/project', {project});
     })
-    .catch((err) => {
-      console.log(err);
-    })
+
   })
   .put(isObjEmpty,(req, res) => {
     Project.update({
