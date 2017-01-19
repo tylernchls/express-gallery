@@ -32,7 +32,7 @@ const isValidRoute = (req, res, next) => {
 }
 
 router.route('/new')
-  .get(isValidRoute,(req, res) => {
+  .get((req, res) => {
       res.render('templates/new')
     })
 
@@ -116,10 +116,6 @@ router.route('/:id/edit')
     .get((req,res) => {
       res.render('templates/404');
   });
-
-
-
-
 
 module.exports = router;
 
