@@ -1,8 +1,18 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Project = sequelize.define('Project', {
-    link: DataTypes.STRING,
-    description: DataTypes.TEXT
+    link: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate : {
+        isUrl: true,
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    }
+
   }, {
     classMethods: {
       associate: function(models) {
