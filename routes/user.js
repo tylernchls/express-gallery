@@ -1,23 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const Author = db.Author;
+const User = db.User;
 const bodyParser = require('body-parser');
 
 router.route('/')
   .get((req,res) => {
-    Author.findAll()
-    .then( author => {
-      res.json(author);
+    User.findAll()
+    .then( user => {
+      res.json(user);
     })
   })
   .post((req,res) => {
-    Author.create({ name: req.body.name})
-    .then(function (author) {
-      res.json(author);
+    User.create({ name: req.body.name})
+    .then(function (user) {
+      res.json(user);
     });
   })
-
-
 
 module.exports = router;

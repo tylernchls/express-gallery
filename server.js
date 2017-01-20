@@ -4,11 +4,14 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const home = require('./routes/home');
 const gallery = require('./routes/gallery');
-const author = require('./routes/author');
+const user = require('./routes/user');
 var methodOverride = require('method-override')
+const passport = require('passport');
+const session = require('express-session');
+const CONFIG = require('./config/config.json');
 
 const db = require('./models');
-const Author = db.Author;
+const User = db.User;
 const Project = db.Project;
 
 app.use(bodyParser.urlencoded({extended:true}))
@@ -31,7 +34,7 @@ app.engine('.hbs', exphbs({
 
 app.use('/', home);
 app.use('/gallery', gallery);
-app.use('/author', author);
+app.use('/user', user);
 
 app.use(function(req, res) {
   res.render('templates/404');
@@ -40,6 +43,55 @@ app.use(function(req, res) {
 
 app.get("*", (req,res) => {
   res.render('templates/404');
+});
+
+const LocalStrategy = require('passport-local').Strategy;
+
+const sess = {
+  secret: CONFIG.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}
+
+app.use(session(sess));
+
+app.use(passport.initialize());
+
+app.use(passport.session());
+
+const authenticate = (username, password) => {
+  const { USER } = Users.findAll({
+    where: {
+      username: username,
+      password: password
+    }
+  });
+  return (USER.length > 0);
+}
+
+passport.use(new LocalStrategy(
+    (username, password, done) => {
+      if(authenticate(username, password)) {
+        // user data from the DB
+        const user = {
+          name: 'Estefania',
+          role: 'admin',
+          favColor: 'green',
+          isAdmin: true,
+        }
+        return done(null, user); // no error and data = user
+      }
+      return done(null, false) // error and auth = false
+    }
+  ))
+
+
+passport.serializeUser((user, done) => {
+  return done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  return done(null, user);
 });
 
 module.exports = app;
