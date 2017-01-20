@@ -26,6 +26,13 @@ app.use(methodOverride(function (req, res) {
   }
 }))
 
+app.set('view engine', '.hbs');
+
+app.engine('.hbs', exphbs({
+  extname:'.hbs',
+  defaultLayout:'main',
+}))
+
 const LocalStrategy = require('passport-local').Strategy;
 
 const sess = {
@@ -57,9 +64,7 @@ passport.use(new LocalStrategy(
       authenticate(username, password)
         .then( result => {
           if(result.length > 0) {
-            result = result[0].dataValues;
-            console.log(result);
-            return done(null, result);
+            return done(null, result[0].dataValues);
           } else {
             return done(null, false);
           }
@@ -67,9 +72,8 @@ passport.use(new LocalStrategy(
         .catch( e => {
           console.log(e);
         })
-    }
+     }
   ))
-
 
 passport.serializeUser((user, done) => {
   console.log(user);
@@ -80,13 +84,6 @@ passport.deserializeUser((user, done) => {
   return done(null, user);
 });
 
-app.set('view engine', '.hbs');
-
-app.engine('.hbs', exphbs({
-  extname:'.hbs',
-  defaultLayout:'main',
-}))
-
 app.use('/', home);
 app.use('/gallery', gallery);
 app.use('/user', user);
@@ -94,7 +91,6 @@ app.use('/login', login);
 
 app.use(function(req, res) {
   res.render('templates/404');
-
 });
 
 app.get("*", (req,res) => {
