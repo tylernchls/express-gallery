@@ -5,7 +5,7 @@ var connect = require('gulp-connect');
 gulp.task('connect', function(){
   connect.server({
     root: 'public',
-    livereload: true
+    livereload: true,
   });
 });
 
@@ -26,4 +26,4 @@ gulp.task('watch', function () {
   gulp.watch('./public/**/*', ['livereload']);
 });
 
-gulp.task('default', ['connect', 'watch', 'sass']);
+gulp.task('default' ['connect', 'watch', 'sass']);
