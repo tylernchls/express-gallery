@@ -4,6 +4,13 @@ const db = require('../models');
 const Project = db.Project;
 const bodyParser = require('body-parser');
 
+const isAuthenticated = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect('/login');
+  }
+  return next();
+}
+
 const isObjEmpty = (req, res, next) => {
   if(Object.keys(req.body).length === 0) {
     res.redirect('gallery/new');
@@ -32,7 +39,7 @@ const isValidRoute = (req, res, next) => {
 }
 
 router.route('/new')
-  .get((req, res) => {
+  .get(isAuthenticated,(req, res) => {
       res.render('templates/new')
     })
 
@@ -49,7 +56,7 @@ router.route('/:id')
     })
 
   })
-  .put(isValidRoute, isObjEmpty,(req, res) => {
+  .put(isValidRoute, isObjEmpty, isAuthenticated, (req, res) => {
     Project.update({
       link: req.body.link,
       description: req.body.description
@@ -66,7 +73,7 @@ router.route('/:id')
       res.json(err.errors[0].message);
     })
   })
-  .delete(isValidRoute,(req,res) => {
+  .delete(isValidRoute, isAuthenticated,(req,res) => {
     Project.destroy({
       where: {
         id: req.params.id
@@ -80,9 +87,8 @@ router.route('/:id')
     })
   })
 
-
 router.route('/')
-  .post(isValidRoute,isObjEmpty, (req,res) => {
+  .post(isValidRoute,isObjEmpty, isAuthenticated, (req,res) => {
     Project.create({
       link: req.body.link,
       description: req.body.description,
@@ -97,7 +103,7 @@ router.route('/')
   })
 
 router.route('/:id/edit')
-  .get(isValidRoute,(req,res) => {
+  .get(isValidRoute, isAuthenticated, (req,res) => {
     Project.findAll({
       where: {
         id: req.params.id

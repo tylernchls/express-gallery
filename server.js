@@ -33,20 +33,6 @@ app.engine('.hbs', exphbs({
   defaultLayout:'main',
 }))
 
-app.use('/', home);
-app.use('/gallery', gallery);
-app.use('/user', user);
-app.use('/login', login);
-
-app.use(function(req, res) {
-  res.render('templates/404');
-
-});
-
-app.get("*", (req,res) => {
-  res.render('templates/404');
-});
-
 const LocalStrategy = require('passport-local').Strategy;
 
 const sess = {
@@ -71,42 +57,27 @@ const authenticate = (username, password) => {
       password: password
     }
   })
-  // .then( user => {
-  //   console.log(Object.keys(user[0].dataValues).length);
-  //   return true;
-  // })
-  // .catch( e => {
-  //   console.log('not in db');
-  //   return false;
-  // })
-  // console.log(USER);
-  // return (USER.length > 0);
 }
 
 passport.use(new LocalStrategy(
     (username, password, done) => {
       authenticate(username, password)
         .then( result => {
-          console.log(result);
+          console.log('result: ', result);
+          if(result.length > 0) {
+            console.log('in if');
+            return done(null, result[0].dataValues);
+
+          } else {
+            console.log('in else');
+            return done(null, false);
+          }
         })
         .catch( e => {
-          console.log('error');
+          console.log(e);
         })
-      // if(authenticate(username, password)) {
-      //   // user data from the DB
-      //   console.log('im in');
-      //   const user = User.findAll({
-      //     where: {
-      //       username: username,
-      //       password: password
-      //     }
-      //   });
-      //   return done(null, user); // no error and data = user
-      // }
-      // return done(null, false) // error and auth = false
-    }
+     }
   ))
-
 
 passport.serializeUser((user, done) => {
   return done(null, user);
@@ -115,5 +86,20 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
   return done(null, user);
 });
+
+app.use('/', home);
+app.use('/gallery', gallery);
+app.use('/user', user);
+app.use('/login', login);
+
+app.use(function(req, res) {
+  res.render('templates/404');
+});
+
+app.get("*", (req,res) => {
+  res.render('templates/404');
+});
+
+
 
 module.exports = app;
