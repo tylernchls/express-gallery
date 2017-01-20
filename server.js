@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const home = require('./routes/home');
 const gallery = require('./routes/gallery');
 const user = require('./routes/user');
+const login = require('./routes/login');
 var methodOverride = require('method-override')
 const passport = require('passport');
 const session = require('express-session');
@@ -35,6 +36,7 @@ app.engine('.hbs', exphbs({
 app.use('/', home);
 app.use('/gallery', gallery);
 app.use('/user', user);
+app.use('/login', login);
 
 app.use(function(req, res) {
   res.render('templates/404');
@@ -60,28 +62,48 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const authenticate = (username, password) => {
-  const { USER } = Users.findAll({
+  console.log(username);
+  console.log(password);
+  let isAuth = null;
+  return User.findAll({
     where: {
       username: username,
       password: password
     }
-  });
-  return (USER.length > 0);
+  })
+  // .then( user => {
+  //   console.log(Object.keys(user[0].dataValues).length);
+  //   return true;
+  // })
+  // .catch( e => {
+  //   console.log('not in db');
+  //   return false;
+  // })
+  // console.log(USER);
+  // return (USER.length > 0);
 }
 
 passport.use(new LocalStrategy(
     (username, password, done) => {
-      if(authenticate(username, password)) {
-        // user data from the DB
-        const user = {
-          name: 'Estefania',
-          role: 'admin',
-          favColor: 'green',
-          isAdmin: true,
-        }
-        return done(null, user); // no error and data = user
-      }
-      return done(null, false) // error and auth = false
+      authenticate(username, password)
+        .then( result => {
+          console.log(result);
+        })
+        .catch( e => {
+          console.log('error');
+        })
+      // if(authenticate(username, password)) {
+      //   // user data from the DB
+      //   console.log('im in');
+      //   const user = User.findAll({
+      //     where: {
+      //       username: username,
+      //       password: password
+      //     }
+      //   });
+      //   return done(null, user); // no error and data = user
+      // }
+      // return done(null, false) // error and auth = false
     }
   ))
 
