@@ -6,13 +6,10 @@
 </div>
 
 <div>
-  <a href="/gallery/{{project.id}}/edit" class="back">Edit</a>
+  <input type=button onClick="location.href='/gallery/{{project.id}}/edit'" value='Edit Project'>
 </div>
+
 <div>
   <a href="/" class="back">Back</a>
 </div>
 
-<form name="form" method="POST" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete" id="Delete">
-    </form>
