@@ -11,6 +11,7 @@ const passport = require('passport');
 const session = require('express-session');
 const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
+const register = require('./routes/register');
 
 const db = require('./models');
 const User = db.User;
@@ -90,6 +91,8 @@ app.use('/gallery', gallery);
 app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/register', register);
+
 
 
 app.use(function(req, res) {

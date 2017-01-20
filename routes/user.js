@@ -12,9 +12,9 @@ router.route('/')
     })
   })
   .post((req,res) => {
-    User.create({ name: req.body.name})
+    User.create({ username: req.body.username, password: req.body.password})
     .then(function (user) {
-      res.json(user);
+      res.redirect('/');
     });
   })
 
