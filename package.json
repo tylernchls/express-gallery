@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/emortong/express-gallery#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.15.2",
     "chai": "^3.5.0",
     "express": "^4.14.0",

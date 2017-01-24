@@ -12,10 +12,12 @@ const session = require('express-session');
 const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
 const register = require('./routes/register');
-
 const db = require('./models');
 const User = db.User;
 const Project = db.Project;
+const bcrypt = require('bcrypt');
+
+
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static('public'));
@@ -49,33 +51,29 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
-const authenticate = (username, password) => {
-  console.log(username);
-  console.log(password);
-  let isAuth = null;
+
+passport.use(new LocalStrategy((username, password, done) => {
   return User.findAll({
     where: {
       username: username,
-      password: password
     }
   })
-}
+  .then(user => {
+    let userHashPassword = user[0].dataValues.password;
 
-passport.use(new LocalStrategy(
-    (username, password, done) => {
-      authenticate(username, password)
-        .then( result => {
-          if(result.length > 0) {
-            return done(null, result[0].dataValues);
-          } else {
-            return done(null, false);
-          }
-        })
-        .catch( e => {
-          console.log(e);
-        })
-     }
-  ))
+    bcrypt.compare(password, userHashPassword, (err, result) => {
+      if (err) {
+        console.log(err);
+        return done(err);
+      }
+
+      if(result) {
+        return done(null, user);
+      }
+    });
+  });
+
+}));
 
 passport.serializeUser((user, done) => {
   console.log(user);
