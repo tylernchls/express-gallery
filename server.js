@@ -2,16 +2,19 @@ const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt')
+const saltRounds = 10;
 const home = require('./routes/home');
+const passport = require('passport');
+const session = require('express-session');
+var methodOverride = require('method-override')
 const gallery = require('./routes/gallery');
 const user = require('./routes/user');
 const login = require('./routes/login');
-var methodOverride = require('method-override')
-const passport = require('passport');
-const session = require('express-session');
 const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
 const register = require('./routes/register');
+
 
 const db = require('./models');
 const User = db.User;
@@ -50,9 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const authenticate = (username, password) => {
-  console.log(username);
-  console.log(password);
-  let isAuth = null;
+
   return User.findAll({
     where: {
       username: username,
@@ -104,3 +105,4 @@ app.get("*", (req,res) => {
 });
 
 module.exports = app;
+
