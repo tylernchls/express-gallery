@@ -1,4 +1,4 @@
-// test
+
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
@@ -84,7 +84,6 @@ passport.use(new LocalStrategy((username, password, done) => {
 }));
 
 passport.serializeUser((user, done) => {
-  console.log(user);
   return done(null, user);
 });
 

@@ -26,7 +26,6 @@ const isValidRoute = (req, res, next) => {
     }
   })
   .then( project => {
-    console.log(project);
     if(project.length !== 0){
       next();
     } else {
@@ -88,7 +87,7 @@ router.route('/:id')
   })
 
 router.route('/')
-  .post(isValidRoute,isObjEmpty, isAuthenticated, (req,res) => {
+  .post(isObjEmpty,isAuthenticated, (req,res) => {
     Project.create({
       link: req.body.link,
       description: req.body.description,
