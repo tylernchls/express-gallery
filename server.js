@@ -16,7 +16,6 @@ const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
 const register = require('./routes/register');
 const RedisStore = require('connect-redis')(session);
-
 const db = require('./models');
 const User = db.User;
 const Project = db.Project;
