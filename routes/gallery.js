@@ -101,6 +101,7 @@ router.route('/')
     })
   })
 
+
 router.route('/:id/edit')
   .get(isValidRoute, isAuthenticated, (req,res) => {
     Project.findAll({
@@ -117,10 +118,10 @@ router.route('/:id/edit')
     })
   })
 
-    router.route("*")
-    .get((req,res) => {
-      res.render('templates/404');
-  });
+router.route("*")
+  .get((req,res) => {
+    res.render('templates/404');
+});
 
 module.exports = router;
 

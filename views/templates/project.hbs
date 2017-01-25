@@ -9,6 +9,11 @@
   <input type=button onClick="location.href='/gallery/{{project.id}}/edit'" value='Edit Project'>
 </div>
 
+<form name="form" method="POST" enctype="application/x-www-form-urlencoded">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+</form>
+
 <div>
   <a href="/" class="back">Back</a>
 </div>
