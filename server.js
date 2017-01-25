@@ -8,13 +8,14 @@ const saltRounds = 10;
 const home = require('./routes/home');
 const passport = require('passport');
 const session = require('express-session');
-var methodOverride = require('method-override')
+const methodOverride = require('method-override')
 const gallery = require('./routes/gallery');
 const user = require('./routes/user');
 const login = require('./routes/login');
 const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
 const register = require('./routes/register');
+const RedisStore = require('connect-redis')(session);
 
 const db = require('./models');
 const User = db.User;
@@ -43,6 +44,7 @@ app.engine('.hbs', exphbs({
 const LocalStrategy = require('passport-local').Strategy;
 
 const sess = {
+  store: new RedisStore(),
   secret: CONFIG.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
