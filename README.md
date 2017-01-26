@@ -32,6 +32,7 @@ Any user should be able to access these routes:
 ---
 
 Setting up the project
+----------------------
 - Fork and clone on local machine
 - Navigate to corresponding folder
 - Run psql in cmd line
