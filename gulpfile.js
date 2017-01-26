@@ -1,11 +1,27 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var connect = require('gulp-connect');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const connect = require('gulp-connect');
+const nodemon = require('gulp-nodemon');
 
 gulp.task('connect', function(){
   connect.server({
     root: 'public',
     livereload: true,
+  });
+});
+
+gulp.task('nodemon', function (cb) {
+
+  var started = false;
+
+  return nodemon({
+    script: 'index.js'
+  }).on('start', function () {
+    // to avoid nodemon being started multiple times
+    if (!started) {
+      cb();
+      started = true;
+    }
   });
 });
 
@@ -26,4 +42,4 @@ gulp.task('watch', function () {
   gulp.watch('./public/**/*', ['livereload']);
 });
 
-gulp.task('default', ['connect', 'watch', 'sass']);
+gulp.task('default', ['connect', 'nodemon', 'watch', 'sass']);
