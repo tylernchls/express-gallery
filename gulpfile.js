@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const connect = require('gulp-connect');
 const nodemon = require('gulp-nodemon');
+const child_process = require('child_process');
 
 gulp.task('connect', function(){
   connect.server({
@@ -25,6 +26,15 @@ gulp.task('nodemon', function (cb) {
   });
 });
 
+gulp.task('redis-start', function() {
+  child_process.exec('redis-server', function(err, stdout, stderr) {
+    console.log(stdout);
+    if (err !== null) {
+      console.log('exec error: ' + err);
+    }
+  });
+});
+
 // keeps gulp from crashing for scss errors
 gulp.task('sass', function () {
   return gulp.src('./sass/*.scss')
@@ -42,4 +52,4 @@ gulp.task('watch', function () {
   gulp.watch('./public/**/*', ['livereload']);
 });
 
-gulp.task('default', ['connect', 'nodemon', 'watch', 'sass']);
+gulp.task('default', ['connect', 'nodemon', 'redis-start', 'watch', 'sass']);
