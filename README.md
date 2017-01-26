@@ -38,6 +38,7 @@ Setting up the project
 - Run psql in cmd line
 - Create a database for the project in postgres in (express-gallery) (psql cmd = create database "name of database";)
 - Connect to database (psql cmd = \c "name of database")
+- Update config.json file with name of your database
 - Run npm start
 - Run sequelize db:seed:all
 - Run gulp
