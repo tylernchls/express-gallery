@@ -4,15 +4,19 @@
 <a href="/gallery/{{this.id}}">
   <div class="projects">
     <p>link: {{this.link}}</p>
-    <p>description: {{this.description}}</p>
+    <div class="desc">
+      <p>description: {{this.description}}</p>
+    </div>
   </div>
 </a>
 {{/each}}
 
-<div>
-  <input type=button class="hvr-wobble-horizontal" onClick="location.href='/gallery/new'" value='New Project'>
+<div class="np">
+  <input type=button id="np_button" onClick="location.href='/gallery/new'" value='New Project'>
 </div>
 
-<a href="/logout"><button>Logout</button></a>
+<div class="lg_out">
+  <a href="/logout"><button id="logout_btn">Logout</button></a>
+</div>
 
 

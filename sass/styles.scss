@@ -1,5 +1,7 @@
 
 body {
+  max-width: 720px;
+  padding: 0 8%;
   background: white;
   text-align: center;
   margin: auto;
@@ -12,6 +14,7 @@ a {
 form {
   font-size: 20px;
 }
+
 input {
   font-size: 15px;
   text-align: center;
@@ -23,28 +26,51 @@ input {
 }
 
 .container {
-  text-align: center;
   margin: auto;
   width: 90%;
 }
 
 .projects {
-  display: inline-block;
-  border: solid black 3px;
+  border-bottom: solid black 1px;
   width: 200px;
   color: black;
   text-decoration: none;
-  text-align: center;
   margin: auto;
   margin-bottom: 10px;
   padding: 10px;
 }
 
-.box {
-  width: 200px;
-  height: 40px;
-  border: solid black 3px;
-  margin: 8px 0;
+.desc{
+  text-align: left;
+}
+
+#np_button {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px;
+  transition: all 0.4s ease 0s;
+}
+
+#np_button:hover {
+  background: #157253;
+}
+
+
+
+#logout_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s;
+}
+
+#logout_btn:hover {
+  background: #157253;
 }
 
 #submit {
@@ -56,28 +82,32 @@ input {
 }
 
 #header {
-  font-size: 50px;
-  background-color: blue;
-  color: white;
+  padding: 20px 0;
+  font-size: 20px;
+  background-color: white;
   margin-top: 0;
+  border-bottom: solid black 1px;
+
 }
 
 #header h1 {
   margin: 0;
-  color: white;
-}
+  color: #00b377;
+  transition: all 0.4s ease 0s;
 
+}
 
 
 #header h1:hover {
-  color: green;
+  color: #157253;
 }
 
 #footer {
-  background-color: buttonface;
-  padding: 8px;
-  margin-top: 25px;
-  font-size: 20px;
+  color: #8d9599;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  padding: 48px 0;
 }
 
 #notFound {
@@ -91,51 +121,6 @@ h1 {
   margin: 0;
 }
 
-@keyframes hvr-wobble-horizontal {
-  16.65% {
-    -webkit-transform: translateX(8px);
-    transform: translateX(8px);
-  }
-  33.3% {
-    -webkit-transform: translateX(-6px);
-    transform: translateX(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateX(4px);
-    transform: translateX(4px);
-  }
-  66.6% {
-    -webkit-transform: translateX(-2px);
-    transform: translateX(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateX(1px);
-    transform: translateX(1px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-
-
-.hvr-wobble-horizontal {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-}
-.hvr-wobble-horizontal:hover, .hvr-wobble-horizontal:focus, .hvr-wobble-horizontal:active {
-  -webkit-animation-name: hvr-wobble-horizontal;
-  animation-name: hvr-wobble-horizontal;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
 
 
 
