@@ -1,11 +1,10 @@
 Express Gallery
 ===============
 
-Express, Sequelize, HTML5, stored on PostgreSQL
+Tech Used
+-----------
+HTML5, JavaScript, Express, Sequelize, Node.js, stored on PostgreSQL
 
-Use the Express, Sequelize, and *almost* any other library or templating engines you want to fulfill the requirements.
-recommended: Handbars and SASS.
-helpful: Livereload, Gulp for watching compiling SASS
 
 ---
 
@@ -37,7 +36,3 @@ Match the layout as close as you can, using free and open fonts and graphics.
 
 ---
 
-#### Responsive Layout
-
-- does not have tablet layout
-- uses a background image that is not included, you will have to find something similar (subtlepatterns.com)
