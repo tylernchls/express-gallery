@@ -1,4 +1,9 @@
 @import "partials/home_pg";
+@import "partials/project_pg";
+@import "partials/reg_pg";
+@import "partials/footer";
+@import "partials/login_pg";
+@import "partials/404_pg";
 
 body {
   background-image: url("dark_embroidery.png");
@@ -29,8 +34,6 @@ input {
   margin-bottom: 20px;
 }
 
-
-
 #desc_form {
   font-size: 20px;
   height: 85px;
@@ -48,36 +51,6 @@ input {
   width: 90%;
 }
 
-
-
-#editproj_btn {
-  background-color: #00b377;
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: all 0.4s ease 0s;
-  margin-bottom: 5px;
-}
-
-#editproj_btn:hover {
-  background: #157253;
-}
-
-#delproj_btn {
-  background-color: #00b377;
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: all 0.4s ease 0s;
-  margin-bottom: 5px;
-}
-
-#delproj_btn:hover {
-  background: #157253;
-}
-
 #back_btn {
   background-color: #00b377;
   color: white;
@@ -90,8 +63,6 @@ input {
 #back_btn:hover {
   background: #157253;
 }
-
-
 
 #submit {
  background-color: #00b377;
@@ -123,40 +94,11 @@ input {
 
 }
 
-
 #header h1:hover {
   color: #157253;
 }
 
-#footer {
-  color: #8d9599;
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 400;
-  padding: 48px 0;
-}
 
-#notFound {
-  width: 100%;
-  background-color: black;
-  color: white;
-  font-size: 200px;
-  margin-top: 30px;
-}
 
-#reg_user {
-  margin-bottom: 10px;
-}
 
-#reg_pass {
-  margin-bottom: 10px;
-}
-
-#login_pass {
-  margin-bottom: 10px;
-}
-
-#login_username {
-  margin-bottom: 10px;
-}
 

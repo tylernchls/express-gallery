@@ -86,7 +86,7 @@ passport.use(new LocalStrategy((username, password, done) => {
 }));
 
 passport.serializeUser((user, done) => {
-  // delete user[0].password;
+  // delete user[0].password; dont want hash pass showing if cl user
   return done(null, user[0]);
 });
 

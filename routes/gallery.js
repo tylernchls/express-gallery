@@ -51,7 +51,7 @@ router.route('/:id')
     })
     .then( project => {
       project = project[0].dataValues;
-      res.render('templates/project', {project});
+      res.render('templates/project', {project, user: req.user});
     })
 
   })

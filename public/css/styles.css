@@ -48,6 +48,56 @@
 #reg_btn:hover {
   background: #157253; }
 
+#editproj_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s;
+  margin-bottom: 5px; }
+
+#editproj_btn:hover {
+  background: #157253; }
+
+#delproj_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s;
+  margin-bottom: 5px; }
+
+#delproj_btn:hover {
+  background: #157253; }
+
+#reg_user {
+  margin-bottom: 10px; }
+
+#reg_pass {
+  margin-bottom: 10px; }
+
+#footer {
+  color: #8d9599;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+  padding: 48px 0; }
+
+#login_pass {
+  margin-bottom: 10px; }
+
+#login_username {
+  margin-bottom: 10px; }
+
+#notFound {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 200px;
+  margin-top: 30px; }
+
 body {
   background-image: url("dark_embroidery.png");
   max-width: 720px;
@@ -86,30 +136,6 @@ input {
   margin: auto;
   width: 90%; }
 
-#editproj_btn {
-  background-color: #00b377;
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: all 0.4s ease 0s;
-  margin-bottom: 5px; }
-
-#editproj_btn:hover {
-  background: #157253; }
-
-#delproj_btn {
-  background-color: #00b377;
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: all 0.4s ease 0s;
-  margin-bottom: 5px; }
-
-#delproj_btn:hover {
-  background: #157253; }
-
 #back_btn {
   background-color: #00b377;
   color: white;
@@ -147,29 +173,3 @@ input {
 
 #header h1:hover {
   color: #157253; }
-
-#footer {
-  color: #8d9599;
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 400;
-  padding: 48px 0; }
-
-#notFound {
-  width: 100%;
-  background-color: black;
-  color: white;
-  font-size: 200px;
-  margin-top: 30px; }
-
-#reg_user {
-  margin-bottom: 10px; }
-
-#reg_pass {
-  margin-bottom: 10px; }
-
-#login_pass {
-  margin-bottom: 10px; }
-
-#login_username {
-  margin-bottom: 10px; }

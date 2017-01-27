@@ -5,14 +5,17 @@
   <p>Description: {{project.description}}</p>
 </div>
 
-<div>
-  <input type=button id="editproj_btn" style="cursor:pointer" onClick="location.href='/gallery/{{project.id}}/edit'" value='Edit Project'>
-</div>
+{{#if user.Admin}}
+  <div>
+    <input type=button id="editproj_btn" style="cursor:pointer" onClick="location.href='/gallery/{{project.id}}/edit'" value='Edit Project'>
+  </div>
 
-<form name="form" method="POST" enctype="application/x-www-form-urlencoded">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" style="cursor:pointer" id="delproj_btn" value="delete">
-</form>
+  <form name="form" method="POST" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" style="cursor:pointer" id="delproj_btn" value="delete">
+  </form>
+{{/if}}
+
 
 <div>
   <input type=button id="back_btn" style="cursor:pointer" onClick="location.href='/'" value='Back'>
