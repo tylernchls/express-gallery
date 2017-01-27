@@ -2,8 +2,12 @@
 
 <form name="form" action="/login" method="POST" enctype="application/x-www-form-urlencoded">
     Username: <br>
-    <input type="text" name="username" placeholder="username" class="box"><br>
+    <input type="text" id="login_username" name="username" placeholder="username" class="box"><br>
     Password: <br>
-    <input type="password" name="password" placeholder="password"><br>
+    <input type="password" id="login_pass" name="password" placeholder="password"><br>
     <input type="submit" value="Submit" id="submit">
   </form>
+
+<div>
+  <input type=button id="reg_btn" onClick="location.href='/register'" value='Register'>
+</div>
