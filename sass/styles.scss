@@ -11,7 +11,7 @@ a {
 }
 
 form {
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 5px;
 }
 
@@ -28,10 +28,13 @@ input {
 }
 
 
+
 #desc_form {
+  font-size: 20px;
   height: 85px;
   width: 400px;
   margin-bottom: 8px;
+  wrap: hard;
 }
 
 .wrap {
@@ -52,9 +55,15 @@ input {
   padding: 10px;
   font-size: 20px;
   font-family: 'Source Sans Pro', sans-serif;
+  transition: all 0.6s ease 0s;
+
 }
 
-#np_button {
+.projects:hover {
+  background: #00b377;
+}
+
+#np_btn {
   background-color: #00b377;
   color: white;
   padding: 8px 24px;
@@ -64,7 +73,7 @@ input {
   transition: all 0.4s ease 0s;
 }
 
-#np_button:hover {
+#np_btn:hover {
   background: #157253;
 }
 
@@ -77,9 +86,24 @@ input {
   border-radius: 4px;
   font-size: 16px;
   transition: all 0.4s ease 0s;
+  margin-bottom: 10px;
 }
 
 #logout_btn:hover {
+  background: #157253;
+}
+
+#reg_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s;
+  margin-bottom: 10px;
+}
+
+#reg_btn:hover {
   background: #157253;
 }
 
@@ -177,7 +201,13 @@ input {
   margin-top: 30px;
 }
 
+#reg_user {
+  margin-bottom: 10px;
+}
 
+#reg_pass {
+  margin-bottom: 10px;
+}
 
 
 
