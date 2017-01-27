@@ -9,9 +9,11 @@
 </a>
 {{/each}}
 
-<div>
-  <input type=button id="np_btn" style="cursor:pointer" onClick="location.href='/gallery/new'" value='New Project'>
-</div>
+{{#if user.Admin}}
+  <div>
+    <input type=button id="np_btn" style="cursor:pointer" onClick="location.href='/gallery/new'" value='New Project'>
+  </div>
+{{/if}}
 
 <div>
   <input type=button id="reg_btn" style="cursor:pointer" onClick="location.href='/register'" value='Register'>
