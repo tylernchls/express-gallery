@@ -6,15 +6,15 @@
 </div>
 
 <div>
-  <input type=button id="editproj_btn" onClick="location.href='/gallery/{{project.id}}/edit'" value='Edit Project'>
+  <input type=button id="editproj_btn" style="cursor:pointer" onClick="location.href='/gallery/{{project.id}}/edit'" value='Edit Project'>
 </div>
 
 <form name="form" method="POST" enctype="application/x-www-form-urlencoded">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" id="delproj_btn" value="delete">
+  <input type="submit" style="cursor:pointer" id="delproj_btn" value="delete">
 </form>
 
 <div>
-  <input type=button id="back_btn" onClick="location.href='/'" value='Back'>
+  <input type=button id="back_btn" style="cursor:pointer" onClick="location.href='/'" value='Back'>
 </div>
 
