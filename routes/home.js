@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models');
 const Project = db.Project;
 
+
 router.route('/')
   .get((req, res) => {
     Project.findAll()

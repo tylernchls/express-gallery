@@ -18,6 +18,8 @@ const RedisStore = require('connect-redis')(session);
 const db = require('./models');
 const User = db.User;
 const Project = db.Project;
+const flash = require('connect-flash');
+
 
 
 
