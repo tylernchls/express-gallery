@@ -86,7 +86,8 @@ passport.use(new LocalStrategy((username, password, done) => {
 }));
 
 passport.serializeUser((user, done) => {
-  return done(null, user);
+  // delete user[0].password;
+  return done(null, user[0]);
 });
 
 passport.deserializeUser((user, done) => {

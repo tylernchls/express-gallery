@@ -28,12 +28,22 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('redis-start', function() {
   child_process.exec('redis-server', function(err, stdout, stderr) {
+    process.on('exit', stopRedis);
     console.log(stdout);
     if (err !== null) {
       console.log('exec error: ' + err);
     }
   });
 });
+
+function stopRedis() {
+  child_process.exec('redis-cli shutdown', function(err, stdout, stderr) {
+    console.log(stdout);
+    if (err !== null) {
+      console.log('exec error: ' + err);
+    }
+  });
+}
 
 // keeps gulp from crashing for scss errors
 gulp.task('sass', function () {

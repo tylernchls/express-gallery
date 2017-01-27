@@ -8,6 +8,7 @@ router.route('/')
   .get((req, res) => {
     Project.findAll()
       .then( project => {
+        console.log('req.user: ', req.user);
         res.render('templates/home', {project, user: req.user});
       })
   })
