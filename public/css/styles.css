@@ -2,7 +2,6 @@ body {
   max-width: 720px;
   padding: 0 8%;
   background: white;
-  text-align: center;
   margin: auto; }
 
 a {
@@ -19,21 +18,17 @@ input {
 .wrap {
   min-height: calc(100vh - 104px); }
 
-.container {
-  margin: auto;
-  width: 90%; }
-
 .projects {
   border-bottom: solid black 1px;
-  width: 200px;
   color: black;
   text-decoration: none;
   margin: auto;
   margin-bottom: 10px;
-  padding: 10px; }
+  padding: 10px;
+  font-size: 20px; }
 
 .desc {
-  text-align: left; }
+  float: left; }
 
 .navigation {
   list-style: none;

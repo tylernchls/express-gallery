@@ -52,4 +52,4 @@ gulp.task('watch', function () {
   gulp.watch('./public/**/*', ['livereload']);
 });
 
-gulp.task('default', ['connect', 'nodemon', 'redis-start', 'watch', 'sass']);
+gulp.task('default', ['connect', 'nodemon', 'redis-start', 'livereload', 'watch', 'sass']);
