@@ -10,8 +10,11 @@
 <body>
   <div class="wrap">
     {{>header }}
-    <div class="container">
-    {{{ body }}}
+    {{>nav}}
+    <div class="site-wrap">
+    {{!--   <div class="container"> --}}
+      {{{ body }}}
+      {{!-- </div> --}}
     </div>
   </div>
   {{>footer }}

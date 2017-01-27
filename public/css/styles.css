@@ -8,39 +8,40 @@ a {
   text-decoration: none; }
 
 form {
-  font-size: 20px; }
+  font-size: 30px;
+  margin-bottom: 5px; }
 
 input {
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   font-family: Times; }
+
+#link_form {
+  height: 30px;
+  width: 300px;
+  margin-bottom: 20px; }
+
+#desc_form {
+  height: 85px;
+  width: 400px;
+  margin-bottom: 8px; }
 
 .wrap {
   min-height: calc(100vh - 104px); }
 
+.container {
+  margin: auto;
+  width: 90%; }
+
 .projects {
-  border-bottom: solid black 1px;
+  border-bottom: solid #cbc5cc 1px;
   color: black;
   text-decoration: none;
   margin: auto;
   margin-bottom: 10px;
   padding: 10px;
-  font-size: 20px; }
-
-.desc {
-  float: left; }
-
-.navigation {
-  list-style: none;
-  background: #111;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0; }
+  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif; }
 
 #np_button {
   background-color: #00b377;
@@ -48,7 +49,7 @@ input {
   padding: 8px 24px;
   border-radius: 4px;
   font-size: 16px;
-  margin: 10px;
+  margin-bottom: 10px;
   transition: all 0.4s ease 0s; }
 
 #np_button:hover {
@@ -65,19 +66,59 @@ input {
 #logout_btn:hover {
   background: #157253; }
 
+#editproj_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s;
+  margin-bottom: 5px; }
+
+#editproj_btn:hover {
+  background: #157253; }
+
+#delproj_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s;
+  margin-bottom: 5px; }
+
+#delproj_btn:hover {
+  background: #157253; }
+
+#back_btn {
+  background-color: #00b377;
+  color: white;
+  padding: 4px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.4s ease 0s; }
+
+#back_btn:hover {
+  background: #157253; }
+
 #submit {
-  background-color: orange;
-  width: 208px;
-  height: 40px;
-  border: solid black 3px;
-  margin: 10px 0; }
+  background-color: #00b377;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  transition: all 0.4s ease 0s; }
+
+#submit:hover {
+  background: #157253; }
 
 #header {
   padding: 20px 0;
   font-size: 20px;
   background-color: white;
   margin-top: 0;
-  border-bottom: solid black 1px; }
+  border-bottom: solid #cbc5cc 1px; }
 
 #header h1 {
   margin: 0;
@@ -89,7 +130,7 @@ input {
 
 #footer {
   color: #8d9599;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 20px;
   font-weight: 400;
   padding: 48px 0; }
@@ -100,6 +141,3 @@ input {
   color: white;
   font-size: 200px;
   margin-top: 30px; }
-
-h1 {
-  margin: 0; }
