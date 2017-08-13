@@ -45,6 +45,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const sess = {
   store: new RedisStore(),
+  name: 'super session',
   secret: CONFIG.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
@@ -85,12 +86,15 @@ passport.use(new LocalStrategy((username, password, done) => {
 
 }));
 
+// Gets user object from succesfull passport check
 passport.serializeUser((user, done) => {
-  // delete user[0].password; dont want hash pass showing if cl user
+  // Attaches user to the the session
   return done(null, user[0]);
 });
 
 passport.deserializeUser((user, done) => {
+  // Adds user info to request object then goes back to route,
+  // and will either redirect to /secret or  /login
   return done(null, user);
 });
 
@@ -113,3 +117,4 @@ app.get("*", (req,res) => {
 
 module.exports = app;
 
+// run gulp to start server and everything else
