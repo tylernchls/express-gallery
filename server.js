@@ -22,9 +22,6 @@ const home = require('./routes/home');
 
 const saltRounds = 10;
 
-
-
-
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static('public'));
 
@@ -58,7 +55,6 @@ app.use(session(sess));
 app.use(passport.initialize());
 
 app.use(passport.session());
-
 
 passport.use(new LocalStrategy((username, password, done) => {
   return User.findAll({
@@ -106,8 +102,6 @@ app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/register', register);
-
-
 
 app.use(function(req, res) {
   res.render('templates/404');
