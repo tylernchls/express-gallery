@@ -3,22 +3,24 @@ const app = express();
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt')
-const saltRounds = 10;
-const home = require('./routes/home');
 const passport = require('passport');
 const session = require('express-session');
 const methodOverride = require('method-override')
+const RedisStore = require('connect-redis')(session);
+const flash = require('connect-flash');
+
 const gallery = require('./routes/gallery');
 const user = require('./routes/user');
 const login = require('./routes/login');
 const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
 const register = require('./routes/register');
-const RedisStore = require('connect-redis')(session);
 const db = require('./models');
 const User = db.User;
 const Project = db.Project;
-const flash = require('connect-flash');
+const home = require('./routes/home');
+
+const saltRounds = 10;
 
 
 
